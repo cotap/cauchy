@@ -1,0 +1,10 @@
+language: ruby
+cache: bundler
+rvm:
+  - 2.2.5
+services:
+  - elasticsearch
+env:
+  global:
+    - "ELASTICSEARCH_HOSTS=http://localhost:9200,http://127.0.0.1:9200"
+script: bundle exec rake spec
