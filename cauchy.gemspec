@@ -18,20 +18,20 @@ Gem::Specification.new do |s|
   s.executables = Dir['bin/*'].map{ |f| File.basename(f) }
   s.require_paths = ['lib']
 
-  s.required_ruby_version = '>= 1.9.3'
+  s.required_ruby_version = '>= 2.0.0'
 
-  s.add_dependency 'activesupport', '~> 4.2.7'
-  s.add_dependency 'diffy', '~> 3.1.0'
+  s.add_dependency 'activesupport', '>= 4.2'
+  s.add_dependency 'diffy', '~> 3.1'
   s.add_dependency 'elasticsearch', '~> 1.0'
   s.add_dependency 'indentation', '~> 0.0'
-  s.add_dependency 'json', '~> 1.8.3'
+  s.add_dependency 'json', '>= 1.8'
   s.add_dependency 'rainbow', '~> 2.1'
-  s.add_dependency 'ruby-progressbar', '~> 1.8.1'
+  s.add_dependency 'ruby-progressbar', '~> 1.8'
   s.add_dependency 'thor', '~> 0.18'
 
   s.add_development_dependency 'bundler', '~> 1.11'
   s.add_development_dependency 'rake', '~> 10.0'
   s.add_development_dependency 'rspec', '~> 3.0'
-  s.add_development_dependency 'rspec-its', '~> 1.2.0'
+  s.add_development_dependency 'rspec-its', '~> 1.2'
   s.add_development_dependency 'pry'
 end
