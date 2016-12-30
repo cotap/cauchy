@@ -4,16 +4,16 @@ require 'pp'
 require 'pry'
 require 'rspec/its'
 
-require 'cauchy'
-
-Cauchy.logger = Logger.new('/dev/null')
-
 if ENV['CODECOV_TOKEN']
   require 'simplecov'
   SimpleCov.start
   require 'codecov'
   SimpleCov.formatter = SimpleCov::Formatter::Codecov
 end
+
+require 'cauchy'
+
+Cauchy.logger = Logger.new('/dev/null')
 
 def elasticsearch_config
   {
