@@ -1,6 +1,7 @@
 # Cauchy
 
 [![Build Status](https://api.travis-ci.com/cotap/cauchy.svg?token=PQCDXv39wYQSK1Gnq72A&branch=master)](https://magnum.travis-ci.com/cotap/cauchy)
+[![Gem Version](https://badge.fury.io/rb/cauchy.svg)](https://badge.fury.io/rb/cauchy)
 
 Cauchy manages your ES Index Schemas.
 
