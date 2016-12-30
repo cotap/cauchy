@@ -8,6 +8,13 @@ require 'cauchy'
 
 Cauchy.logger = Logger.new('/dev/null')
 
+if ENV['CODECOV_TOKEN']
+  require 'simplecov'
+  SimpleCov.start
+  require 'codecov'
+  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+end
+
 def elasticsearch_config
   {
     urls: ENV.fetch(

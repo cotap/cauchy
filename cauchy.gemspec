@@ -30,6 +30,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'thor', '~> 0.18'
 
   s.add_development_dependency 'bundler', '~> 1.11'
+  s.add_development_dependency 'codecov', '~> 0.1.9'
   s.add_development_dependency 'rake', '~> 10.0'
   s.add_development_dependency 'rspec', '~> 3.0'
   s.add_development_dependency 'rspec-its', '~> 1.2'
