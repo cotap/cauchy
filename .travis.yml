@@ -7,4 +7,5 @@ services:
 env:
   global:
     - "ELASTICSEARCH_HOSTS=http://localhost:9200,http://127.0.0.1:9200"
+    - "CODECOV_TOKEN=e870b18f-fe34-498c-9bb5-d7d6f17821b1"
 script: bundle exec rake spec
