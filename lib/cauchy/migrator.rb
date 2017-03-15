@@ -237,7 +237,7 @@ module Cauchy
     end
 
     def index_aliases
-      client.index(index_alias).aliases
+      client.index(index_alias).aliases || {}
     end
 
     def log(msg, method = :info, &block)
