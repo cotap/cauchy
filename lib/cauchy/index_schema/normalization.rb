@@ -14,7 +14,7 @@ module Cauchy
         hash.deep_stringify_keys.sort.map do |key, field|
           if field.key?('properties')
             field['properties'] = normalize_mapping(field['properties'])
-            field['type'] = 'object'
+            field['type'] ||= 'object'
           end
 
           if field['type'] == 'date'
