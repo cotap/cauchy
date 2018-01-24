@@ -12,28 +12,36 @@ module Cauchy
 
       def normalize_mapping(hash)
         hash.deep_stringify_keys.sort.map do |key, field|
-          if field.key?('properties')
-            field['properties'] = normalize_mapping(field['properties'])
-            field['type'] = 'object'
-          end
-
-          if field['type'] == 'date'
-            field['format'] ||= 'dateOptionalTime'
-          end
-
-          if ['boolean', 'long', 'double', 'date'].include?(field['type'])
-            field.delete('analyzer')
-            field['index'] ||= 'not_analyzed'
-          end
-
-          if key == 'properties'
-            field = normalize_mapping(field)
+          if field.is_a?(Hash)
+            normalize_field(key, field)
           else
-            field = normalize_value(field)
+            [key, field]
           end
-
-          [key, field]
         end.to_h
+      end
+
+      def normalize_field(key, field)
+        if field.key?('properties')
+          field['properties'] = normalize_mapping(field['properties'])
+          field['type'] ||= 'object'
+        end
+
+        if field['type'] == 'date'
+          field['format'] ||= 'dateOptionalTime'
+        end
+
+        if ['boolean', 'long', 'double', 'date'].include?(field['type'])
+          field.delete('analyzer')
+          field['index'] ||= 'not_analyzed'
+        end
+
+        if key == 'properties'
+          field = normalize_mapping(field)
+        else
+          field = normalize_value(field)
+        end
+
+        return [key, field]
       end
 
       def normalize_settings(hash)
