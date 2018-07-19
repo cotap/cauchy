@@ -16,8 +16,8 @@ module Cauchy
         Index.new(server, name)
       end
 
-      def bulk(body)
-        server.bulk body: body
+      def reindex(body)
+        server.reindex body: body
       end
 
       def update_aliases(body)

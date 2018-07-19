@@ -158,24 +158,11 @@ module Cauchy
 
     def reindex_data
       log 'Reindexing...'
-      progress_bar = nil
-      old_index.scroll do |documents, total|
-        docs = documents.map do |h|
-          {
-            index: {
-              _index: new_index.name,
-              _type: h['_type'],
-              _id: h['_id'],
-              data: h['_source']
-            }
-          }
-        end
-
-        client.bulk docs
-
-        progress_bar ||= ProgressBar.create(total: total, throttle_rate: 0.1, format: '%a |%B| %e')
-        progress_bar.progress += docs.size
-      end
+      client.reindex(
+        conflicts: 'proceed',
+        source: { index: old_index.name },
+        dest: { index: new_index.name, op_type: 'create' }
+      )
     end
 
     def status
