@@ -28,7 +28,7 @@ describe Cauchy::Elastic::Index do
   describe '.aliases' do
     let(:aliases) { { "#{name}_123" => { 'aliases' => { name => {} } } } }
     subject { instance.aliases }
-    before { allow(instance).to receive(:get).with('aliases').and_return(aliases) }
+    before { allow(instance).to receive(:get).with('alias').and_return(aliases) }
 
     it { is_expected.to eq aliases }
   end
@@ -95,7 +95,7 @@ describe Cauchy::Elastic::Index do
     it 'updates the mappings' do
       mappings.each do |type, mapping|
         expect(indices).to receive(:put_mapping)
-          .with(index: name, type: type, body: { type => mapping })
+          .with(index: name, body: mapping )
       end
       subject
     end

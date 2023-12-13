@@ -18,7 +18,7 @@ module Cauchy
     def changes_mappings?
       (new_schema.types - schema.types).any? ||
         (new_schema.types & schema.types).any? do |type|
-          mapping, new_mapping = schema.mapping_for(type), new_schema.mapping_for(type)
+          mapping, new_mapping = schema.mapping_properties, new_schema.mapping_properties
           removed_fields = mapping.keys - new_mapping.keys
           mapping.except(*removed_fields) != new_mapping
         end
@@ -26,7 +26,7 @@ module Cauchy
 
     def changes_existing_mappings?
       (new_schema.types & schema.types).any? do |type|
-        mapping, new_mapping = schema.mapping_for(type), new_schema.mapping_for(type)
+        mapping, new_mapping = schema.mapping_properties, new_schema.mapping_properties
         common_fields = mapping.keys & new_mapping.keys
         mapping.slice(*common_fields) != new_mapping.slice(*common_fields)
       end

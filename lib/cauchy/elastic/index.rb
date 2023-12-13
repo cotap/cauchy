@@ -33,7 +33,7 @@ module Cauchy
       end
 
       def aliases
-        get 'aliases'
+        get 'alias'
       end
 
       def mappings
@@ -54,8 +54,7 @@ module Cauchy
 
       def mappings=(mappings)
         mappings.each do |type, mapping|
-          server.indices.put_mapping index: name, type: type,
-            body: { type => mapping }
+          server.indices.put_mapping index: name, body: mapping
         end
       end
 

@@ -27,10 +27,8 @@ describe Cauchy::Migrator do
 
       mappings do
         {
-          foo: {
-            properties: {
-              title: { type: 'string', analyzer: 'folding' },
-            }
+          properties: {
+            title: { type: 'text', analyzer: 'folding' },
           }
         }
       end
@@ -55,11 +53,9 @@ describe Cauchy::Migrator do
 
       mappings do
         {
-          foo: {
-            properties: {
-              title: { type: 'string', analyzer: 'folding' },
-              full_name: { type: 'string', analyzer: 'folding' }
-            }
+          properties: {
+            title: { type: 'text', analyzer: 'folding' },
+            full_name: { type: 'text', analyzer: 'folding' }
           }
         }
       end
@@ -85,10 +81,8 @@ describe Cauchy::Migrator do
 
       mappings do
         {
-          foo: {
-            properties: {
-              title: { type: 'string', analyzer: 'folding' }
-            }
+          properties: {
+            title: { type: 'text', analyzer: 'folding' }
           }
         }
       end
@@ -106,17 +100,14 @@ describe Cauchy::Migrator do
                 filter: [ 'lowercase', 'asciifolding' ]
               }
             }
-          },
-          mapper: { dynamic: true }
+          }
         }
       end
 
       mappings do
         {
-          foo: {
-            properties: {
-              title: { type: 'string', analyzer: 'folding' },
-            }
+          properties: {
+            title: { type: 'text', analyzer: 'folding' },
           }
         }
       end

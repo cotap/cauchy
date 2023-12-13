@@ -49,9 +49,9 @@ module Cauchy
       end.to_h
     end
 
-    def mapping_for(type)
-      return unless mappings.key?(type)
-      mappings[type]['properties']
+    def mapping_properties
+      return unless mappings.key?('properties')
+      mappings['properties']
     end
 
     def settings(&block)
@@ -64,7 +64,7 @@ module Cauchy
     end
 
     def types
-      mappings.keys
+      Array.wrap(index_alias)
     end
 
     def version

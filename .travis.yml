@@ -1,11 +1,13 @@
 language: ruby
 cache: bundler
 rvm:
-  - 2.2.5
+  - 2.7.6
 services:
   - elasticsearch
 env:
   global:
     - "ELASTICSEARCH_HOSTS=http://localhost:9200,http://127.0.0.1:9200"
     - "CODECOV_TOKEN=e870b18f-fe34-498c-9bb5-d7d6f17821b1"
+before_script:
+  - sudo systemctl status elasticsearch
 script: bundle exec rake spec

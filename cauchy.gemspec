@@ -18,12 +18,12 @@ Gem::Specification.new do |s|
   s.executables = Dir['bin/*'].map{ |f| File.basename(f) }
   s.require_paths = ['lib']
 
-  s.required_ruby_version = '>= 2.0.0'
+  s.required_ruby_version = '~> 2.0'
 
   s.add_dependency 'activesupport', '>= 4.2'
   s.add_dependency 'diffy', '~> 3.1'
-  s.add_dependency 'elasticsearch', '~> 1.0'
-  s.add_dependency 'faraday', '~> 0.17.3'
+  s.add_dependency 'elasticsearch', '~> 7.13'
+  s.add_dependency 'faraday', '~> 1.0'
   s.add_dependency 'indentation', '~> 0.0'
   s.add_dependency 'json', '>= 1.8'
   s.add_dependency 'rainbow', '~> 2.1'

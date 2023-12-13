@@ -6,13 +6,11 @@ describe Cauchy::IndexSchema do
 
     let(:settings) { { foo: 'bar' } }
     let(:schema) { :conversations }
-    let(:type) { :conversation }
+    let(:type) { :conversations }
     let(:properties) { { bar: { foo: 'baz' } } }
     let(:mappings) do
       {
-        type => {
-          properties: properties
-        }
+        properties: properties
       }
     end
 

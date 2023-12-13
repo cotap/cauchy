@@ -125,6 +125,7 @@ module Cauchy
 
       if migration.changes_mappings?
         log 'Updating index mappings... ' do
+          pp "migration.new_schema.mappings: #{migration.new_schema.mappings}"
           old_index.mappings = migration.new_schema.mappings
           'done.'
         end
@@ -164,7 +165,6 @@ module Cauchy
           {
             index: {
               _index: new_index.name,
-              _type: h['_type'],
               _id: h['_id'],
               data: h['_source']
             }
@@ -184,6 +184,7 @@ module Cauchy
       else
         log migration_diff, :unknown
         log 'Requires reindexing!', :warn if migration.requires_reindex?
+        log 'Requires updating index settings!', :warn if migration.changes_settings?
       end
     end
 

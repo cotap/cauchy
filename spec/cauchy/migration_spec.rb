@@ -19,11 +19,9 @@ describe Cauchy::Migration do
 
       mappings do
         {
-          conversation: {
-            properties: {
-              title: { type: 'string', analyzer: 'folding' },
-              timestamp: { type: 'date', index: 'not_analyzed' }
-            }
+          properties: {
+            title: { type: 'text', analyzer: 'folding' },
+            timestamp: { type: 'date', index: 'not_analyzed' }
           }
         }
       end
@@ -47,12 +45,10 @@ describe Cauchy::Migration do
 
       mappings do
         {
-          conversation: {
-            properties: {
-              title: { type: 'string', analyzer: 'folding' },
-              body: { type: 'string', analyzer: 'folding' },
-              timestamp: { type: 'date', index: 'not_analyzed' }
-            }
+          properties: {
+            title: { type: 'text', analyzer: 'folding' },
+            body: { type: 'text', analyzer: 'folding' },
+            timestamp: { type: 'date', index: 'not_analyzed' }
           }
         }
       end
@@ -76,11 +72,9 @@ describe Cauchy::Migration do
 
       mappings do
         {
-          conversation: {
-            properties: {
-              title: { type: 'string', analyzer: 'folding' },
-              timestamp: { type: 'string', analyzer: 'folding' }
-            }
+          properties: {
+            title: { type: 'text', analyzer: 'folding' },
+            timestamp: { type: 'text', analyzer: 'folding' }
           }
         }
       end
@@ -97,12 +91,10 @@ describe Cauchy::Migration do
 
       mappings do
         {
-          conversation: {
-            properties: {
-              title: { type: 'string', analyzer: 'folding' },
-              body: { type: 'string', analyzer: 'folding' },
-              timestamp: { type: 'string', analyzer: 'folding' }
-            }
+          properties: {
+            title: { type: 'text', analyzer: 'folding' },
+            body: { type: 'text', analyzer: 'folding' },
+            timestamp: { type: 'text', analyzer: 'folding' }
           }
         }
       end
